@@ -1,6 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfr7o6xilyrou"]
+[gd_scene load_steps=5 format=3 uid="uid://b5v7s8owen4fg"]
 
-[ext_resource type="Script" path="res://personagem.gd" id="1_cs2q6"]
+[ext_resource type="Script" path="res://script/personagem.gd" id="1_g6rtp"]
+[ext_resource type="Texture2D" uid="uid://co36wrr064oex" path="res://sprites/icon.svg" id="2_1sgxn"]
+[ext_resource type="PackedScene" uid="uid://yncefrw3k2uj" path="res://cenas/acelerador.tscn" id="3_pw670"]
 
-[node name="Node2D" type="CharacterBody2D"]
-script = ExtResource("1_cs2q6")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86xx2"]
+size = Vector2(117, 122)
+
+[node name="personagem" type="CharacterBody2D"]
+script = ExtResource("1_g6rtp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="acelerador" parent="CanvasLayer" instance=ExtResource("3_pw670")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_1sgxn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_86xx2")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(2, 2)
+zoom = Vector2(0.5, 0.5)
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[connection signal="acelerar_signal" from="CanvasLayer/acelerador" to="." method="_on_acelerador_acelerar_signal"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
