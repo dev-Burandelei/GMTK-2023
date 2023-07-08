@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://di8pff25rpqkk"]
+
+[ext_resource type="Script" path="res://menus/credit_scene.gd" id="1_1rbnd"]
+[ext_resource type="Script" path="res://menus/RichTextLabel.gd" id="2_ux7ls"]
+
+[node name="credit_scene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1rbnd")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = 4.0
+offset_right = 134.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Creators:
+Vant
+Durgy
+ChickenMcNuggets"
+scroll_active = false
+script = ExtResource("2_ux7ls")

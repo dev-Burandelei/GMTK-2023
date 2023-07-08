@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="Kitchen Food Revolution"
-config/features=PackedStringArray("4.0", "Forward Plus")
-config/icon="res://sprites/icon.svg"
+run/main_scene="res://menus/main_menu.tscn"
+config/features=PackedStringArray("4.1", "Forward Plus")
+config/icon="res://icon.svg"
 
 [input]
 
